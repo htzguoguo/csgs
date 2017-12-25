@@ -7,8 +7,10 @@ module.exports = function () {
         module : {
             rules : [
                 {
-                    test: /\.(ttf|eot|woff|woff2)$/,
-                    loader: 'file-loader'
+                    test: /\.(woff|woff2|eot|ttf|otf)$/,
+                    use: [
+                        'url-loader'
+                    ]
                 }
             ]
         }

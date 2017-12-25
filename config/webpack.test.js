@@ -8,14 +8,15 @@ const PATHS = require('./webpack.path');
 const loadIsparta = require('./parts/loadIsparta');
 const setupCSS = require('./parts/setupCSS');
 const loadJSX = require('./parts/loadJSX');
-
+const loadLESS = require('./parts/loadLESS');
 const test = merge(
     {
         devtool: 'inline-source-map'
     },
     loadIsparta(PATHS.app),
     setupCSS(PATHS.app),
-    loadJSX(PATHS.test)
+    loadLESS(PATHS.app),
+   /* loadJSX(PATHS.test)*/
 );
 
 /*const test = {

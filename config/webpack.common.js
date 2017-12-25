@@ -15,7 +15,7 @@ const common = merge(
     {
         entry : {
             app : PATHS.app + '/index.jsx',
-            style : [PATHS.style]
+            style : PATHS.style
         },
         resolve: {
             extensions: ['.js', '.jsx']
@@ -28,13 +28,14 @@ const common = merge(
     },
     indexTemplate(
         {
-            title : 'kanban demo',
-            appMountId : 'app'
+            title : '长深高速公路养护系统',
+            appMountId : 'root'
         }
     ),
     loadJSX(PATHS.app),
-    lintJSX(PATHS.app),
-    lintCSS(PATHS.app)
+
+  /*  lintJSX(PATHS.app),
+    lintCSS(PATHS.app)*/
 );
 
 /*const common =  {

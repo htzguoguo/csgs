@@ -7,22 +7,9 @@ module.exports = function (paths) {
         module: {
             rules: [
                 {
-                    test: /\.css$/,
+                    test: /\.(css)$/,
                     loaders: ['style-loader', 'css-loader'],
                    /* include: paths*/
-                }
-                ,
-                {
-                    test: /\.(png|svg|jpg|gif)$/,
-                    use: [
-                        'file-loader'
-                    ]
-                },
-                {
-                    test: /\.(woff|woff2|eot|ttf|otf)$/,
-                    use: [
-                        'file-loader'
-                    ]
                 }
             ]
         }

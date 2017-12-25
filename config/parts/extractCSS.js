@@ -12,10 +12,21 @@ module.exports = function (paths) {
                     test: /\.css$/,
                     use: ExtractTextPlugin.extract({
                         fallback: "style-loader",
-                        use: "css-loader"
+                        use: ["css-loader"]
+                    })
+
+                },
+                {
+                    test: /\.less$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'style-loader',
+                        use: ['css-loader', 'less-loader']
                     }),
-                   /* include: paths*/
-                }
+                     include: paths
+                },
+                {
+                    test: /\.(png|jpg)$/,
+                    loader: 'url-loader?name=assets/images/[name].[ext]&limit=8192' },
             ]
         },
         plugins : [

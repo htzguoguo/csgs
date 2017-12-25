@@ -13,6 +13,8 @@ const extractBundle = require('./parts/extractBundle');
 const clean = require('./parts/clean');
 const setFreeVariable = require('./parts/setFreeVariable');
 const minify = require('./parts/minify');
+const copyAssets = require('./parts/copyAssets');
+const minifyCSS = require('./parts/minifyCSS');
 
 const production = merge(
     {
@@ -27,7 +29,18 @@ const production = merge(
     ),
     extractBundle(),
     minify(),
-    extractCSS(PATHS.app)
+    extractCSS(PATHS.app),
+    copyAssets(PATHS.app + '/assets', PATHS.build + '/assets'),
+    minifyCSS({
+        options: {
+            discardComments: {
+                removeAll: true,
+            },
+            // Run cssnano in safe mode to avoid
+            // potentially unsafe transformations.
+            safe: true,
+            },
+        })
 );
 
 /*const production = {
